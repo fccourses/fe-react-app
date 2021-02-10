@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Greeting from './components/Greeting';
+import Aloha from './components/Greeting';
 
 function App() {
   const user = {
@@ -9,9 +9,9 @@ function App() {
   };
   return (
     <>
-      <Greeting name={user.firstName} photo={user.url} />
-      <Greeting name='Masha' />
-      <Greeting name='Dasha' />
+      <Aloha name={user.firstName} photo={user.url} />
+      <Aloha name='Masha' />
+      <Aloha name='Dasha' />
     </>
   );
 }
