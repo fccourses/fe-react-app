@@ -17,7 +17,7 @@ class Aloha extends Component {
   };
 
   render() {
-    const { name, photo } = this.props;
+    const { name } = this.props;
     const { isGreeting } = this.state;
 
     return (
@@ -25,7 +25,6 @@ class Aloha extends Component {
         <h1>
           {isGreeting ? 'Hello' : 'Goodbye'}, {name}
         </h1>
-        <img src={photo} alt={name} />
         <button onClick={this.switchState}>Switch</button>
       </>
     );
