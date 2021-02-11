@@ -20,6 +20,10 @@ class Aloha extends Component {
     const { name } = this.props;
     const { isGreeting } = this.state;
 
+    if (!isGreeting) {
+      return <h1>ПОКА {name}</h1>;
+    }
+
     return (
       <>
         <h1>

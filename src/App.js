@@ -11,6 +11,7 @@ class App extends Component {
       url: 'http://localhost:3000/favicon.ico',
     };
   }
+  
   render() {
     const { firstName, url, lastName } = this.state;
 
