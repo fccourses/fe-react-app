@@ -10,7 +10,6 @@ class Aloha extends Component {
 
   switchState = () => {
     const { isGreeting } = this.state;
-
     this.setState({
       isGreeting: !isGreeting,
     });
@@ -19,7 +18,6 @@ class Aloha extends Component {
   render() {
     const { name } = this.props;
     const { isGreeting } = this.state;
-
     if (!isGreeting) {
       return <h1>ПОКА {name}</h1>;
     }

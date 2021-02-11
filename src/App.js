@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import Aloha from './components/Aloha';
+import AlohaDashboard from './components/AlohaDashboard';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      firstName: 'John',
-      lastName: 'Doe',
-      url: 'http://localhost:3000/favicon.ico',
-    };
   }
-  
-  render() {
-    const { firstName, url, lastName } = this.state;
 
+  render() {
     return (
       <>
-        <Aloha name={`${firstName} ${lastName}`} />
-        <Aloha name='Masha' />
-        <Aloha name='Dasha' />
+        <AlohaDashboard />
+        
       </>
     );
   }
