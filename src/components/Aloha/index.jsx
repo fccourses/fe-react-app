@@ -15,9 +15,14 @@ class Aloha extends Component {
     });
   };
 
+  deleteHandler = () => {
+    const { deleteUser, id } = this.props;
+    deleteUser(id);
+  };
+
   render() {
-    const { name } = this.props;
     const { isGreeting } = this.state;
+    const { name } = this.props;
     if (!isGreeting) {
       return <h1>ПОКА {name}</h1>;
     }
@@ -28,6 +33,7 @@ class Aloha extends Component {
           {isGreeting ? 'Hello' : 'Goodbye'}, {name}
         </h1>
         <button onClick={this.switchState}>Switch</button>
+        <button onClick={this.deleteHandler}>X</button>
       </>
     );
   }

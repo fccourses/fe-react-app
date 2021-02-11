@@ -8,6 +8,7 @@ class SortedAlohaList extends Component {
       isDirectSort: true,
     };
   }
+
   sortUsers = () => {
     const { isDirectSort } = this.state;
     const { users, setUsers } = this.props;
@@ -17,7 +18,7 @@ class SortedAlohaList extends Component {
     this.setState({
       isDirectSort: !isDirectSort,
     });
-    
+
     setUsers(
       usersCopy.sort((a, b) => (isDirectSort ? b.id - a.id : a.id - b.id))
     );
@@ -25,12 +26,12 @@ class SortedAlohaList extends Component {
 
   render() {
     const { isDirectSort } = this.state;
-    const { users } = this.props;
+    const { users, deleteUser } = this.props;
 
     return (
       <>
         <span>Порядок сортировки {isDirectSort ? 'Прямой' : 'Реверс'}</span>
-        <AlohaList users={users} />
+        <AlohaList users={users} deleteUser={deleteUser} />
         <button onClick={this.sortUsers}>SORT</button>
       </>
     );

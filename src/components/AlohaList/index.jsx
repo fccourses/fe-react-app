@@ -2,8 +2,14 @@ import React from 'react';
 import Aloha from '../Aloha';
 
 function AlohaList(props) {
+  const { deleteUser } = props;
   const mapAloha = ({ firstName, lastName, id }) => (
-    <Aloha key={id} id={id} name={`${firstName} ${lastName}`} />
+    <Aloha
+      key={id}
+      id={id}
+      name={`${firstName} ${lastName}`}
+      deleteUser={deleteUser}
+    />
   );
 
   const { users } = props;
