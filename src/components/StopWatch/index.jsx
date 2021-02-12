@@ -4,12 +4,17 @@ class StopWatch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
+      time: new Date(0, 0, 0, 0, 0, 0, 0),
     };
     this.intervalId = null;
   }
 
-  tick = () => this.setState({ count: this.state.count + 1 });
+  tick = () => {
+    const { time } = this.state;
+    time.setSeconds(time.getSeconds() + 1);
+
+    this.setState({ time });
+  };
 
   start = () => {
     if (!this.intervalId) {
@@ -24,7 +29,7 @@ class StopWatch extends Component {
 
   reset = () => {
     this.stop();
-    this.setState({ count: 0 });
+    this.setState({ time: new Date(0, 0, 0, 0, 0, 0, 0) });
   };
 
   componentDidMount() {
@@ -38,12 +43,10 @@ class StopWatch extends Component {
   }
 
   render() {
-    console.log('render');
-
-    const { count } = this.state;
+    const { time } = this.state;
     return (
       <article>
-        <h1>{count}</h1>
+        <h1>{time.toLocaleTimeString('it-IT')}</h1>
         <button onClick={this.start}>Start</button>
         <button onClick={this.stop}>Stop</button>
         <button onClick={this.reset}>Reset</button>
