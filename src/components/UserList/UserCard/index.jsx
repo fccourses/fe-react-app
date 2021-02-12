@@ -8,7 +8,7 @@ const UserCard = (props) => {
     border: isSelected ? '4px solid' : undefined,
   };
 
-  const btnHandler = () => void userSelector(id);
+  const btnHandler = () => userSelector(id);
 
   return (
     <article style={styles}>
