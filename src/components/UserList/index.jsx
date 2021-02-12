@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserCard from './UserCard';
-
+//vlc
 const usersDB = [
   {
     id: 1,
@@ -33,11 +33,24 @@ class UserList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: usersDB,
+      users: usersDB.map((u) => ({ ...u, isSelected: false })),
     };
   }
 
-  mapUser = (user) => <UserCard key={user.id} user={user} />;
+  userSelector = (id) => {
+    const { users } = this.state;
+    const newUsers = [...users];
+    this.setState({
+      users: newUsers.map((user) => ({
+        ...user,
+        isSelected: user.id === id ? !user.isSelected : user.isSelected,
+      })),
+    });
+  };
+
+  mapUser = (user) => (
+    <UserCard key={user.id} user={user} userSelector={this.userSelector} />
+  );
 
   render() {
     const { users } = this.state;
