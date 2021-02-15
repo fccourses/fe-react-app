@@ -4,31 +4,38 @@ class StopWatch extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isRunning: false,
       time: new Date(0, 0, 0, 0, 0, 0, 0),
     };
-    this.intervalId = null;
+    this.timeoutId = null;
   }
 
-  tick = () => {
-    const { time } = this.state;
-    time.setSeconds(time.getSeconds() + 1);
+  tick = () =>
+    this.setState((state, props) => {
+      const { time } = state;
+      const newTime = new Date(time.getTime());
+      newTime.setSeconds(time.getSeconds() + 1);
 
-    this.setState({ time });
-  };
+      return {
+        time: newTime,
+      };
+    });
 
   start = () => {
-    if (!this.intervalId) {
-      this.intervalId = setInterval(this.tick, 1000);
-    }
+    this.setState({ isRunning: true });
   };
 
   stop = () => {
-    clearInterval(this.intervalId);
-    this.intervalId = null;
+    this.setState({ isRunning: false });
+  };
+
+  clear = () => {
+    clearInterval(this.timeoutId);
+    this.timeoutId = null;
   };
 
   reset = () => {
-    this.stop();
+    this.clear();
     this.setState({ time: new Date(0, 0, 0, 0, 0, 0, 0) });
   };
 
@@ -36,19 +43,29 @@ class StopWatch extends Component {
     this.start();
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    const { isRunning } = this.state;
+    this.clear();
+    if (isRunning) {
+      this.timeoutId = setTimeout(this.tick, 1000);
+    }
+  }
 
   componentWillUnmount() {
-    this.stop();
+    this.clear();
   }
 
   render() {
-    const { time } = this.state;
+    const { time, isRunning } = this.state;
     return (
       <article>
         <h1>{time.toLocaleTimeString('it-IT')}</h1>
-        <button onClick={this.start}>Start</button>
-        <button onClick={this.stop}>Stop</button>
+        {isRunning ? (
+          <button onClick={this.stop}>Stop</button>
+        ) : (
+          <button onClick={this.start}>Start</button>
+        )}
+
         <button onClick={this.reset}>Reset</button>
       </article>
     );
