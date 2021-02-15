@@ -1,14 +1,13 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import './App.css';
 import StopWatch from './components/StopWatch';
+import Aloha from './components/AlohaDashboard/Aloha';
 
 function App(props) {
-  const [isVisible, setIsVisible] = useState(true);
   return (
     <>
-      {/* <button onClick={() => setIsVisible(!isVisible)}>Change</button>
-      {isVisible ? <StopWatch /> : null} */}
-      <StopWatch/>
+      <Aloha name='Aloha' />
+      <StopWatch />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import './style.css';
 
 class Aloha extends Component {
   constructor(props) {
@@ -28,13 +29,13 @@ class Aloha extends Component {
     }
 
     return (
-      <>
+      <div className='container'>
         <h1>
           {isGreeting ? 'Hello' : 'Goodbye'}, {name}
         </h1>
         <button onClick={this.switchState}>Switch</button>
         <button onClick={this.deleteHandler}>X</button>
-      </>
+      </div>
     );
   }
 }
