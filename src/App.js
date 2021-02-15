@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import StopWatch from './components/StopWatch';
-import Aloha from './components/AlohaDashboard/Aloha';
+import SignInForm from './components/SignInForm';
 
 function App(props) {
   return (
     <>
-      <Aloha name='Aloha' />
-      <StopWatch />
+      <SignInForm />
     </>
   );
 }
