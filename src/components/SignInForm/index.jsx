@@ -6,11 +6,11 @@ const initialValues = {
   email: '',
   password: '',
   isemailValid: true,
-  ispasswordValid: true,
+  ispasswordValid: true
 };
 
 class SignInForm extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = { ...initialValues };
   }
@@ -19,7 +19,7 @@ class SignInForm extends Component {
     this.setState({ [name]: value, [`is${name}Valid`]: !value.includes(' ') });
   };
 
-  handleForm = (event) => {
+  handleForm = event => {
     event.preventDefault();
     console.log(event);
 
@@ -27,11 +27,11 @@ class SignInForm extends Component {
     this.setState({ ...initialValues });
   };
 
-  render() {
+  render () {
     const { email, password, isemailValid } = this.state;
 
     const emailClassNames = cx(styles.input, {
-      [styles.invalidInput]: !isemailValid,
+      [styles.invalidInput]: !isemailValid
     });
 
     return (
