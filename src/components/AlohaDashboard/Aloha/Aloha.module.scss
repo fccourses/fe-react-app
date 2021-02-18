@@ -1,0 +1,34 @@
+@import './../../../common/styles/breakpoints';
+
+.container {
+  display: flex;
+  flex-direction: row;
+
+  color: red;
+  font-size: 4rem;
+
+  background-color: darkgray;
+
+  h1 {
+    border: {
+      width: 2px;
+      style: solid;
+      color: red;
+      radius: 10px;
+    }
+  }
+
+  &:hover {
+    background-color: white;
+  }
+
+  &:focus {
+    outline: 1px solid black;
+  }
+
+  @media screen and (max-width: $sm){
+    display: flex;
+    flex-direction: column;
+  }
+
+}

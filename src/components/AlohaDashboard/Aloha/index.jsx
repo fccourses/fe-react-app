@@ -1,18 +1,18 @@
 import { Component } from 'react';
-import './style.css';
+import styles from './Aloha.module.scss';
 
 class Aloha extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
-      isGreeting: true,
+      isGreeting: true
     };
   }
 
   switchState = () => {
     const { isGreeting } = this.state;
     this.setState({
-      isGreeting: !isGreeting,
+      isGreeting: !isGreeting
     });
   };
 
@@ -21,7 +21,7 @@ class Aloha extends Component {
     deleteUser(id);
   };
 
-  render() {
+  render () {
     const { isGreeting } = this.state;
     const { name } = this.props;
     if (!isGreeting) {
@@ -29,7 +29,7 @@ class Aloha extends Component {
     }
 
     return (
-      <div className='container'>
+      <div className={styles.container}>
         <h1>
           {isGreeting ? 'Hello' : 'Goodbye'}, {name}
         </h1>

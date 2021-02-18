@@ -1,16 +1,20 @@
+@import './../../common/styles/breakpoints';
+@import './../../common/styles/templates';
+
 .container {
-  display: flex;
+  @extend %flex-center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   text-align: center;
-
   background-color: black;
   color: green;
   padding: 20px;
   font-size: 1.5rem;
   border: 5px solid green;
+
+  @media (min-width: $md) {
+    flex-direction: row;
+  }
 }
 
 .btn {

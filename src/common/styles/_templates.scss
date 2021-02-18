@@ -1,0 +1,20 @@
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%one-liner {
+  white-space: no-wrap;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: elipsis;
+}
+
+%absolute-cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
