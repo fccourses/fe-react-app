@@ -1,11 +1,23 @@
-function sandbox(props) {
-  const { isBool:bool = false, name = 'Anonymous' } = props;
-
-  if (bool) {
-    return `str ${name}`;
+class Test {
+  constructor () {
+    this._number = false;
+    this._isRequired = false;
   }
 
-  return `10 ${name}`;
+  get number () {
+    this._number = true;
+    return this;
+  }
+
+  get isRequired () {
+    this._isRequired = true;
+    return this;
+  }
 }
 
-sandbox();
+const t = new Test();
+
+console.log(t);
+console.log(t.number);
+console.log(t.isRequired);
+console.log(t);

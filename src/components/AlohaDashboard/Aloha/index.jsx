@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Aloha.module.scss';
 
 class Aloha extends Component {
@@ -39,5 +40,11 @@ class Aloha extends Component {
     );
   }
 }
+
+Aloha.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  deleteUser: PropTypes.func
+};
 
 export default Aloha;

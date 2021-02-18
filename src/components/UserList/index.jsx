@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import UserCard from './UserCard';
+import PropTypes from 'prop-types';
+import UserCard, { userPropType } from './UserCard';
 //vlc
 
 class UserList extends Component {
-  userSelector = (id) => {
+  userSelector = id => {
     const { users, setUsers } = this.props;
     const newUsers = [...users]; // Поверхностная копия
 
     setUsers(
-      newUsers.map((user) => ({
+      newUsers.map(user => ({
         ...user,
-        isSelected: user.id === id ? !user.isSelected : user.isSelected,
+        isSelected: user.id === id ? !user.isSelected : user.isSelected
       }))
     );
   };
 
-  mapUser = (user) => (
+  mapUser = user => (
     <UserCard key={user.id} user={user} userSelector={this.userSelector} />
   );
 
-  render() {
+  render () {
     const { users } = this.props;
     return (
       <section>
@@ -29,5 +30,10 @@ class UserList extends Component {
     );
   }
 }
+
+UserList.propTypes = {
+  users: PropTypes.arrayOf(userPropType).isRequired,
+  setUsers: PropTypes.func
+};
 
 export default UserList;
