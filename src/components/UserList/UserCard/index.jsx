@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const UserCard = props => {
   const {
     user: { id, firstName, lastName, isSelected },
-    userSelector = () => {}
+    userSelector
   } = props;
 
   const styles = {
@@ -21,6 +21,11 @@ const UserCard = props => {
       <button onClick={btnHandler}>Select this User</button>
     </article>
   );
+};
+
+UserCard.defaultProps = {
+  userSelector: () => {},
+  user: { id: null, firstName: 'Anon', lastName: 'Anon' }
 };
 
 export const userPropType = PropTypes.shape({
