@@ -1,16 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const directionHelper = (column, reverse) => {
-  const cond = [];
-  if (column) {
-    cond.push('column');
-  }
-  if (reverse) {
-    cond.push('reverse');
-  }
-  return cond.join('-');
-};
+
 
 const FlexContainer = props => {
   const { children, jc, ai, fd, wrap, column, reverse } = props;
@@ -19,7 +10,7 @@ const FlexContainer = props => {
     display: 'flex',
     justifyContent: jc,
     alignItems: ai,
-    flexDirection: directionHelper(column, reverse),
+    flexDirection: '',
     flexWrap: wrap
   };
 
