@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
+import { getUsers } from '../../api';
 
 class UsersLoader extends Component {
   constructor (props) {
@@ -26,10 +27,7 @@ class UsersLoader extends Component {
 
   load = () => {
     const { currentPage } = this.state;
-    fetch(
-      `https://randomuser.me/api/?results=20&page=${currentPage}&seed=FE2020-2`
-    )
-      .then(res => res.json())
+    getUsers({ page: currentPage })
       .then(data =>
         this.setState({
           users: data.results,
