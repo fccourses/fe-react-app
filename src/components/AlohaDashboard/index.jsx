@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SortedAlohaList from '../SortedAlohaList';
 
 class AlohaDashboard extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       users: [
@@ -35,19 +35,19 @@ class AlohaDashboard extends Component {
     };
   }
 
-  deleteUser = (userId) => {
+  deleteUser = userId => {
     const { users } = this.state;
     this.setState({
-      users: users.filter((user) => user.id !== userId),
+      users: users.filter(user => user.id !== userId),
     });
   };
 
-  setUsers = (users) =>
+  setUsers = users =>
     this.setState({
       users,
     });
 
-  render() {
+  render () {
     const { users } = this.state;
 
     return (

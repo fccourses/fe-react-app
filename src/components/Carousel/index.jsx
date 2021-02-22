@@ -9,20 +9,20 @@ class Carousel extends Component {
         {
           src: 'url',
           title: 'title',
-          descr: 'descr'
+          descr: 'descr',
         },
         {
           src: 'url',
           title: 'title',
-          descr: 'descr'
+          descr: 'descr',
         },
         {
           src: 'url',
           title: 'title',
-          descr: 'descr'
-        }
+          descr: 'descr',
+        },
       ],
-      currentIndex: 0
+      currentIndex: 0,
     };
   }
 

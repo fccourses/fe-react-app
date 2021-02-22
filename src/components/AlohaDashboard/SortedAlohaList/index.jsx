@@ -2,7 +2,7 @@ import { Component } from 'react';
 import AlohaList from '../AlohaList';
 
 class SortedAlohaList extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       isDirectSort: true,
@@ -24,7 +24,7 @@ class SortedAlohaList extends Component {
     );
   };
 
-  render() {
+  render () {
     const { isDirectSort } = this.state;
     const { users, deleteUser } = this.props;
 

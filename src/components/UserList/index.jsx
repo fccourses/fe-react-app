@@ -11,7 +11,7 @@ class UserList extends Component {
     setUsers(
       newUsers.map(user => ({
         ...user,
-        isSelected: user.id === id ? !user.isSelected : user.isSelected
+        isSelected: user.id === id ? !user.isSelected : user.isSelected,
       }))
     );
   };
@@ -33,7 +33,7 @@ class UserList extends Component {
 
 UserList.propTypes = {
   users: PropTypes.arrayOf(userPropType).isRequired,
-  setUsers: PropTypes.func
+  setUsers: PropTypes.func,
 };
 
 export default UserList;

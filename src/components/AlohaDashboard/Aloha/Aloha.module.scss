@@ -26,9 +26,8 @@
     outline: 1px solid black;
   }
 
-  @media screen and (max-width: $sm){
+  @media screen and (max-width: $sm) {
     display: flex;
     flex-direction: column;
   }
-
 }

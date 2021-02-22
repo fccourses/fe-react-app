@@ -6,7 +6,7 @@ const initialValues = {
   email: '',
   password: '',
   isemailValid: true,
-  ispasswordValid: true
+  ispasswordValid: true,
 };
 
 class SignInForm extends Component {
@@ -31,7 +31,7 @@ class SignInForm extends Component {
     const { email, password, isemailValid } = this.state;
 
     const emailClassNames = cx(styles.input, {
-      [styles.invalidInput]: !isemailValid
+      [styles.invalidInput]: !isemailValid,
     });
 
     return (

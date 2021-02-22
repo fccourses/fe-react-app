@@ -6,14 +6,14 @@ class Aloha extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      isGreeting: true
+      isGreeting: true,
     };
   }
 
   switchState = () => {
     const { isGreeting } = this.state;
     this.setState({
-      isGreeting: !isGreeting
+      isGreeting: !isGreeting,
     });
   };
 
@@ -44,7 +44,7 @@ class Aloha extends Component {
 Aloha.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  deleteUser: PropTypes.func
+  deleteUser: PropTypes.func,
 };
 
 export default Aloha;

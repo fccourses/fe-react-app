@@ -8,21 +8,21 @@ const ImageWrapper = props => {
   const inlineStyles = {
     ...style,
     height,
-    width
+    width,
   };
 
   return <div style={inlineStyles} {...restProps} />;
 };
 
 ImageWrapper.defaultProps = {
-  className: styles.wrapper
+  className: styles.wrapper,
 };
 
 ImageWrapper.propTypes = {
   children: PropTypes.element.isRequired,
   className: PropTypes.string,
   width: PropTypes.string,
-  height: PropTypes.string
+  height: PropTypes.string,
 };
 
 export default ImageWrapper;

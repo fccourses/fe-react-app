@@ -6,7 +6,7 @@ class Slide extends Component {
   render () {
     const {
       slide: { src, title, descr },
-      isCurrent
+      isCurrent,
     } = this.props;
 
     const classes = cx(styles.slide, {
