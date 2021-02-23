@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import WindowSizes from './components/WindowSizes';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+// import WindowSizes from './components/WindowSizes';
 // import UsersLoader from './components/UsersLoader';
 // import ImageWrapper from './components/ImageWrapper';
 // import UserCard from './components/UserList/UserCard';
@@ -9,20 +10,42 @@ import WindowSizes from './components/WindowSizes';
 // import Carousel from './components/Carousel';
 
 const App = props => {
-  const [state, setstate] = useState(true);
-
+  console.log(props);
   return (
-    <>
-      <button
-        onClick={() => {
-          setstate(!state);
-        }}
-      >
-        Check
-      </button>
-      {state && <WindowSizes />}
-    </>
+    <BrowserRouter>
+      <nav>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
+          <li>
+            <Link to='/contacts'>Contacts</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/about' component={About} />
+        <Route path='/contacts' component={Contacts} />
+      </Switch>
+    </BrowserRouter>
   );
 };
+
+const Home = () => <div>HOME</div>;
+const About = props => {
+  console.log(props);
+
+  setTimeout(() => {
+    props.history.push('/');
+  }, 5000);
+
+  return <div>About</div>;
+};
+const Contacts = () => <div>Contacts</div>;
 
 export default App;
