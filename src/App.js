@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import CounterPage from './pages/Counter';
 // import WindowSizes from './components/WindowSizes';
 // import UsersLoader from './components/UsersLoader';
 // import ImageWrapper from './components/ImageWrapper';
@@ -10,7 +11,6 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 // import Carousel from './components/Carousel';
 
 const App = props => {
-  console.log(props);
   return (
     <BrowserRouter>
       <nav>
@@ -24,6 +24,9 @@ const App = props => {
           <li>
             <Link to='/contacts'>Contacts</Link>
           </li>
+          <li>
+            <Link to='/counter'>Counter</Link>
+          </li>
         </ul>
       </nav>
 
@@ -31,6 +34,8 @@ const App = props => {
         <Route exact path='/' component={Home} />
         <Route path='/about' component={About} />
         <Route path='/contacts' component={Contacts} />
+        <Route path='/counter' component={CounterPage} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>
   );
@@ -47,5 +52,7 @@ const About = props => {
   return <div>About</div>;
 };
 const Contacts = () => <div>Contacts</div>;
+
+const NotFound = () => <div>ERROR 404: PAGE NOT FOUND</div>
 
 export default App;
