@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 
 class TrackerPage extends Component {
+  renderCat = state => <Cat {...state} />;
+
   render () {
     return (
       <div>
-        <MouseTracker>
-          {({ x, y }) => {
-            return <Cat x={x} y={y} />;
-          }}
-        </MouseTracker>
+        <MouseTracker>{this.renderCat}</MouseTracker>
       </div>
     );
   }
