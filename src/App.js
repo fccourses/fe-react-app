@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import CounterPage from './pages/Counter';
+import LoaderPage from './pages/Loader';
+import TrackerPage from './pages/Tracker';
 // import WindowSizes from './components/WindowSizes';
 // import UsersLoader from './components/UsersLoader';
 // import ImageWrapper from './components/ImageWrapper';
@@ -35,6 +37,8 @@ const App = props => {
         <Route path='/about' component={About} />
         <Route path='/contacts' component={Contacts} />
         <Route path='/counter' component={CounterPage} />
+        <Route path="/loader" component={LoaderPage} />
+        <Route path="/tracker" component={TrackerPage} />
         <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>
