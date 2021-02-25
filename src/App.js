@@ -1,62 +1,43 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import CounterPage from './pages/Counter';
-import LoaderPage from './pages/Loader';
-import TrackerPage from './pages/Tracker';
-// import WindowSizes from './components/WindowSizes';
-// import UsersLoader from './components/UsersLoader';
-// import ImageWrapper from './components/ImageWrapper';
-// import UserCard from './components/UserList/UserCard';
-// import Aloha from './components/AlohaDashboard/Aloha';
-// import Calendar from './components/Calendar';
-// import Carousel from './components/Carousel';
+import React, { Component } from 'react';
+import Header from './components/Header';
+import Tree from './components/Tree';
+import { UserContext, ThemeContext } from './contexts';
+import CONSTANTS from './constants';
+const { THEMES } = CONSTANTS;
+/* 
+  1. Создание контекста - createContext
+  2. Предоставление данных контекста - Provider
+  3. Чтение данных из контекста - Consumer
+*/
 
-const App = props => {
-  return (
-    <BrowserRouter>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
-          </li>
-          <li>
-            <Link to='/contacts'>Contacts</Link>
-          </li>
-          <li>
-            <Link to='/counter'>Counter</Link>
-          </li>
-        </ul>
-      </nav>
+class App extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      theme: THEMES.DARK,
+      user: {
+        id: 1,
+        firstName: 'John',
+        lastName: 'Doe',
+        imageSrc:
+          'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',
+      },
+    };
+  }
 
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/about' component={About} />
-        <Route path='/contacts' component={Contacts} />
-        <Route path='/counter' component={CounterPage} />
-        <Route path="/loader" component={LoaderPage} />
-        <Route path="/tracker" component={TrackerPage} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-    </BrowserRouter>
-  );
-};
+  setTheme = theme => this.setState({ theme });
 
-const Home = () => <div>HOME</div>;
-const About = props => {
-  console.log(props);
-
-  setTimeout(() => {
-    props.history.push('/');
-  }, 5000);
-
-  return <div>About</div>;
-};
-const Contacts = () => <div>Contacts</div>;
-
-const NotFound = () => <div>ERROR 404: PAGE NOT FOUND</div>
+  render () {
+    const { user, theme } = this.state;
+    return (
+      <ThemeContext.Provider value={[theme, this.setTheme]}>
+        <UserContext.Provider value={user}>
+          <Header />
+          <Tree />
+        </UserContext.Provider>
+      </ThemeContext.Provider>
+    );
+  }
+}
 
 export default App;
