@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'propTypes';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { SIGN_IN_SCHEMA } from '../../../utils/validationSchemas';
 import Input from '../Input';
@@ -27,6 +28,10 @@ const SignInForm = props => {
       }}
     </Formik>
   );
+};
+
+SignInForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SignInForm;

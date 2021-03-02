@@ -17,9 +17,7 @@ const styles = {
 */
 
 class Counter extends Component {
-  state = {
-    value: 0,
-  };
+/*  */
 
   increment = () =>
     this.setState((state, props) => ({ value: state.value + props.step }));

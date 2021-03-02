@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import styles from './Input.module.scss';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Field, ErrorMessage } from 'formik';
 
 const Input = ({ name, ...rest }) => {
   return (
