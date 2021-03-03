@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react';
 
-const Tracker = props => {
-  const [state, setState] = useState(0);
+const Clicker = props => {
+  const [clickCount, setClickCount] = useState(0);
+  const [step, setStep] = useState(10);
 
-  const handleClick = () => setState(state + 1);
+  const changeStep = ({ target: { value } }) => setStep(Number(value));
 
   useEffect(() => {
-    document.body.addEventListener('click', handleClick);
-    console.log('OUTER. Вешаем обработчик');
+    const handleClick = () => {
+      setClickCount(prevCount => prevCount + step);
+    };
+    document.body.addEventListener('mousemove', handleClick);
+    console.log('test');
 
     return function () {
-      document.body.removeEventListener('click', handleClick);
-      console.log('INNER. Удаляем обработчик');
+      document.body.removeEventListener('mousemove', handleClick);
     };
-  });
+  }, [step]);
 
-  return <h3>Click: {state}</h3>;
+  return (
+    <div>
+      <input type='number' value={step} onChange={changeStep} />
+      <h1>Click: {clickCount}</h1>
+    </div>
+  );
 };
 
-export default Tracker;
+export default Clicker;
