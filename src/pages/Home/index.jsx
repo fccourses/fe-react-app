@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import StopWatch from '../../components/FuncStopWatch';
 import Clicker from '../../components/FuncTracker';
 
 const Home = props => {
@@ -7,7 +8,8 @@ const Home = props => {
   return (
     <div>
       <button onClick={() => setIsVisible(!isVisible)}>SWITCH</button>
-      {isVisible && <Clicker />}
+      {/* {isVisible && <Clicker />} */}
+      <StopWatch />
     </div>
   );
 };
