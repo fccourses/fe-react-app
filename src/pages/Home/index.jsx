@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useCallback,
+  useMemo,
+} from 'react';
 import { ThemeContext } from '../../contexts';
 import CONSTANTS from '../../constants';
 
@@ -17,6 +23,14 @@ const stylesMap = {
   },
 };
 
+function computeResult (num) {
+  let i = 0;
+  for (let j = 0; j < 400000000; j++) {
+    i += j;
+  }
+  return num ** 3;
+}
+
 const Home = props => {
   const [value, setValue] = useState(1);
   const [theme, setTheme] = useContext(ThemeContext);
@@ -34,16 +48,15 @@ const Home = props => {
     console.log(value);
   }, [value]);
 
-  useEffect(() => {
-    console.log('функция создалась');
-  }, [logResult]);
-
   const onChangeInput = useCallback(({ target: { value } }) => {
     setValue(Number(value));
   }, []);
 
+  const layoutString = useMemo(() => computeResult(value), [value]);
+
   return (
     <div style={stylesMap[theme]}>
+      <h1>{layoutString}</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est repellat
         dolore impedit. Est modi, quia eligendi dolore facilis esse excepturi{' '}
@@ -57,9 +70,5 @@ const Home = props => {
     </div>
   );
 };
-
-function computeResult (num) {
-  return num ** 3;
-}
 
 export default Home;
