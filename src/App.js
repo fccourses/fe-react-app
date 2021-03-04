@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import { UserContext } from './contexts';
+import { ThemeContext } from './contexts';
+import CONSTANTS from './constants';
+
+const { THEMES } = CONSTANTS;
 
 const App = props => {
-  const [user, setUser] = useState({
-    id: 1,
-    name: 'John Doe',
-  });
+  const themeState = useState(THEMES.LIGHT);
 
   /*>> ThemeSwitcher <<*/
 
   return (
-    <UserContext.Provider value={user}>
+    <ThemeContext.Provider value={themeState}>
       <BrowserRouter>
         <Switch>
           <Route path='/' component={Home} />
         </Switch>
       </BrowserRouter>
-    </UserContext.Provider>
+    </ThemeContext.Provider>
   );
 };
 
