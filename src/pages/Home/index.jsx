@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import { ThemeContext } from '../../contexts';
 import CONSTANTS from '../../constants';
+import UserList from '../../components/FuncLoaderUser';
 
 const { THEMES } = CONSTANTS;
 
@@ -67,6 +68,9 @@ const Home = props => {
       <button onClick={switchOnce}>
         {theme === THEMES.LIGHT ? 'SET DARK THEME' : 'SET LIGHT THEME'}
       </button>
+      <div>
+        <UserList/>
+      </div>
     </div>
   );
 };

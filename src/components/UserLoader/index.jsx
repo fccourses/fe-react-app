@@ -9,7 +9,6 @@ class UserLoader extends Component {
       error: null,
     };
   }
-
   componentDidMount () {
     this.setState({
       isFetching: true,
@@ -19,9 +18,9 @@ class UserLoader extends Component {
       .then(users => this.setState({ users, isFetching: false }))
       .catch(error => this.setState({ error, isFetching: false }));
   }
-
   render () {
     const { users, isFetching, error } = this.state;
+
     if (error) {
       return <div>{error.message}</div>;
     }
