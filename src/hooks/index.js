@@ -30,7 +30,6 @@ export function useData (getData) {
   };
 }
 
-
 export function useMouse () {
   const [coordinates, setCoordinates] = useState({
     x: 0,
@@ -50,5 +49,3 @@ export function useMouse () {
 
   return coordinates;
 }
-
-

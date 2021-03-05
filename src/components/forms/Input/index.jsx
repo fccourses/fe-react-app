@@ -8,8 +8,6 @@ const Input = ({ name, ...rest }) => {
     <label>
       <Field name={name}>
         {({ field, form, meta }) => {
-          console.log(meta);
-
           const classNames = cx(styles.input, {
             [styles.validInput]: meta.touched && !meta.error,
             [styles.errorInput]: meta.touched && meta.error,

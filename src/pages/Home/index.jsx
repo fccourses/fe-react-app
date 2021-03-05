@@ -26,7 +26,7 @@ const stylesMap = {
 
 function computeResult (num) {
   let i = 0;
-  for (let j = 0; j < 400000000; j++) {
+  for (let j = 0; j < 4000; j++) {
     i += j;
   }
   return num ** 3;
@@ -69,7 +69,7 @@ const Home = props => {
         {theme === THEMES.LIGHT ? 'SET DARK THEME' : 'SET LIGHT THEME'}
       </button>
       <div>
-        <UserList/>
+        <UserList />
       </div>
     </div>
   );
