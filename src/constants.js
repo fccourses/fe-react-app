@@ -1,10 +1,11 @@
 /* enum - перечисляемый тип */
 
-const CONSTANTS = {
-  THEMES: {
-    DARK: 'DARK',
-    LIGHT: 'LIGHT',
-  },
+export const ACTIONS = {
+  MENU_OPEN: 'MENU_OPEN',
+  MENU_CLOSE: 'MENU_CLOSE',
 };
 
-export default CONSTANTS;
+export const THEMES = {
+  DARK: 'DARK',
+  LIGHT: 'LIGHT',
+};

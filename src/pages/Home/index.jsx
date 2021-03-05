@@ -6,10 +6,8 @@ import React, {
   useMemo,
 } from 'react';
 import { ThemeContext } from '../../contexts';
-import CONSTANTS from '../../constants';
+import { THEMES } from '../../constants';
 import UserList from '../../components/FuncLoaderUser';
-
-const { THEMES } = CONSTANTS;
 
 const stylesMap = {
   [THEMES.LIGHT]: {
