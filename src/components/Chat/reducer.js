@@ -9,20 +9,16 @@ const reducer = (state, action) => {
 
       users.forEach(user => usersMap.set(user.id, user));
 
-      const messagesWithAuthors = messages.map(msg => {
-        const msgWithAuthor = {
-          ...msg,
-          author: usersMap.get(msg.authorId),
-        };
-        return msgWithAuthor;
-      });
+      const messagesWithAuthors = messages.map(msg => ({
+        ...msg,
+        author: usersMap.get(msg.authorId),
+      }));
 
-      const newState = {
+      return {
         ...state,
         users,
         messages: messagesWithAuthors,
       };
-      return newState;
     }
 
     default:
