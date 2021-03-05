@@ -1,10 +1,10 @@
 const reducer = (state, action) => {
-  const {
-    type,
-    data: { users, messages },
-  } = action;
-  switch (type) {
+  switch (action.type) {
     case 'DATA_RESPONSE_SUCCESS': {
+      const {
+        data: { users, messages },
+      } = action;
+
       const usersMap = new Map();
 
       users.forEach(user => usersMap.set(user.id, user));
@@ -18,6 +18,14 @@ const reducer = (state, action) => {
         ...state,
         users,
         messages: messagesWithAuthors,
+      };
+    }
+    case 'DATA_RESPONSE_ERROR': {
+      const { error } = action;
+
+      return {
+        ...state,
+        error,
       };
     }
 

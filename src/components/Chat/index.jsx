@@ -15,6 +15,12 @@ const Chat = props => {
           type: 'DATA_RESPONSE_SUCCESS',
           data,
         })
+      )
+      .catch(error =>
+        dispatch({
+          type: 'DATA_RESPONSE_ERROR',
+          error,
+        })
       );
   }, []);
 
